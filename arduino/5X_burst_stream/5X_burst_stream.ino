@@ -51,16 +51,18 @@ void loop()
   for(int i = 0; i < 5; i++)
   {
     mlx[i].readBurstData(data[i]);
+    Serial.print(",");
     Serial.print(data[i].t);
-    Serial.print("\t");
+    Serial.print(",");
     Serial.print(data[i].x);
-    Serial.print("\t");
+    Serial.print(",");
     Serial.print(data[i].y);
-    Serial.print("\t");
+    Serial.print(",");
     Serial.print(data[i].z);
   }
   Serial.println();
 
-  //adjust delay to achieve desired sampling rate
+  // adjust delay to achieve desired sampling rate
   // delayMicroseconds(500);
+  delay(1000); // ~1Hz
 }
