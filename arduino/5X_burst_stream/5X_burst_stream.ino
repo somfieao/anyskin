@@ -20,7 +20,7 @@ MLX90393 mlx[5]; //Create an array of five MLX90393 objects
 MLX90393::txyz data[5] = {0,0,0,0}; //Create an array of five structures, called data, of four floats (t, x, y, and z)
 uint8_t mlx_i2c[5] = {0x0C, 0x0D, 0x0E, 0x0F, 0x10}; // these are the I2C addresses of the five chips that share one I2C bus
 
-const unsigned int FREQUENCY = 15;
+const unsigned int FREQUENCY = 1;
 const unsigned int INTERVAL = 1000000 / FREQUENCY;  
 
 void setup()
@@ -49,7 +49,7 @@ void setup()
 
 void loop()
 {
-  unsigned long start = micros();
+  // unsigned long start = micros();
   //continuously read the most recent data from the data registers and save to data
   for(int i = 0; i < 5; i++)
   {
@@ -65,7 +65,7 @@ void loop()
   }
   Serial.println();
 
-  unsigned long elapsed = micros() - start;
+  // unsigned long elapsed = micros() - start;
   // adjust delay to achieve desired sampling rate
-  delayMicroseconds(INTERVAL - elapsed);
+  // delayMicroseconds(INTERVAL - elapsed);
 }
